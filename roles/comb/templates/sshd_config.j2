@@ -7,7 +7,7 @@
 
 VersionAddendum perceivon
 
-Port {{ config.host.sshd_port }}
+Port {{ host_sshd_port }}
 ListenAddress {{ internal_ip }}
 ListenAddress {{ ansible_default_ipv4.address }}
 {% if 'address' in ansible_default_ipv6 %}
