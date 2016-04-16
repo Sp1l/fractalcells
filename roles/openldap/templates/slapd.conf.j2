@@ -41,7 +41,7 @@ index   objectClass     eq
 index   uid             eq,sub
 
 # security first
-#security ssf=256
+security ssf=128
 # FIXME: broken!!!
 TLSCipherSuite {{ openssl.ciphers }}
 TLSCertificateFile /usr/local/etc/openldap/private/{{ certificate_authority.short_name }}_proxy.cert.pem
