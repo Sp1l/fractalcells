@@ -61,7 +61,7 @@
   - proxy-cert
 
 - name: Generate Proxy TLS key
-  shell: openssl genrsa -out '{{ certificate_authority.certificate_directory }}/proxy/private/{{ certificate_authority.short_name }}_proxy.key.pem' {{ certificate_authority.intermediate.default_bits }}
+  shell: openssl genrsa -out '{{ certificate_authority.certificate_directory }}/proxy/private/{{ certificate_authority.short_name }}_proxy.key.pem' {{ certificate_authority.proxy.default_bits }}
   when: not proxy_tls_key.stat.exists
   tags:
   - proxy
