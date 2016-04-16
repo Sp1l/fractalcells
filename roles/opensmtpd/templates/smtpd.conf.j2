@@ -8,6 +8,8 @@ listen on {{ production_jails.opensmtpd.ip }}
 table aliases file:/etc/mail/aliases
 table authinfo file:/usr/local/etc/mail/authinfo.db
 
+ciphers {{ openssl.ciphers }}
+
 accept for local alias <aliases> deliver to mbox
 accept from any for domain "{{ production_jails.opensmtpd.hostname }}.{{ external_domain }}" alias <aliases> deliver to mbox
 
