@@ -1,5 +1,5 @@
 
-        ssl_protocols        TLSv1 TLSv1.1 TLSv1.2;
+        ssl_protocols        TLSv1.2;
         ssl_certificate      {{ certificate_authority.certificate_directory }}/{{ certificate_authority.short_name }}_proxy.cert.pem;
         ssl_certificate_key  {{ certificate_authority.certificate_directory }}/{{ certificate_authority.short_name }}_proxy.key.pem;
         ssl_trusted_certificate  {{ certificate_authority.certificate_directory }}/{{ certificate_authority.short_name }}_ca_intermediate.cert.pem;
@@ -7,6 +7,9 @@
 
         ssl_session_cache    shared:SSL:1m;
         ssl_session_timeout  5m;
+	ssl_session_tickets  off;
 
         ssl_ciphers          {{ openssl.ciphers }};
         ssl_prefer_server_ciphers  on;
+
+	add_header Strict-Transport-Security max-age=15768000;
